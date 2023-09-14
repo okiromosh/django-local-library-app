@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>ID: {{ author.id }}</h1>
+
+  <p><strong>First Name:</strong> <a href="">{{ author.first_name }}</a></p>
+  <p><strong>Last Name:</strong> <a href="">{{ author.last_name }}</a></p>
+
+  <h3>Books Written: {{ books_written.count }}</h3>
+  <ul>
+    {% for book in books_written %}
+    <li>
+      <strong><a href="{% url 'book' book.id %}">{{ book.title }}</a></strong>
+      <br>
+      <p>{{ book.summary }}</p>
+    </li>
+
+    {% endfor%}
+  </ul>
+
+{% endblock %}
